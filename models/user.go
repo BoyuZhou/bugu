@@ -2,9 +2,12 @@ package models
 
 import (
 	"time"
-	"github.com/astaxie/beego/orm"
-	"bugu/redis"
 	"fmt"
+
+	"github.com/astaxie/beego/orm"
+
+	"bugu/redis"
+	"bugu/utils"
 )
 
 
@@ -53,4 +56,14 @@ func Login(username string, password string) (v *User, err error) {
 		return v, nil
 	}
 	return nil, err
+}
+
+func Register(m *User) (id int64, err error) {
+	o := orm.NewOrm()
+	id, err = o.Insert(m)
+	if err != nil {
+		utils.LogError(err)
+		return 0, err
+	}
+	return id, err
 }

@@ -15,7 +15,7 @@ import (
 func init() {
 
 	//启用Session
-	beego.BConfig.WebConfig.Session.SessionOn = true
+	//beego.BConfig.WebConfig.Session.SessionOn = true
 
 	utils.InitLogs();
 

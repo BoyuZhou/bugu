@@ -50,9 +50,17 @@ func init() {
 	beego.GlobalControllerRouter["bugu/controllers:UserController"] = append(beego.GlobalControllerRouter["bugu/controllers:UserController"],
 		beego.ControllerComments{
 			Method: "GetOne",
-			Router: `/`,
+			Router: `/user/:id`,
 			AllowHTTPMethods: []string{"get"},
 			MethodParams: param.Make(),
 			Params: nil})
+
+	beego.GlobalControllerRouter["bugu/controllers:UserController"] = append(beego.GlobalControllerRouter["bugu/controllers:UserController"],
+		beego.ControllerComments{
+				Method: "Get",
+				Router: `/login`,
+				AllowHTTPMethods: []string{"get"},
+				MethodParams: param.Make(),
+				Params: nil})
 
 }

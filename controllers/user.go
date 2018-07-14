@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"bugu/models"
+	"bugu/utils"
 	"strconv"
 	"github.com/astaxie/beego"
 )
@@ -47,6 +48,7 @@ func (c *UserController) Login() {
 	}
 
 	l, err := models.Login(username, password)
+	utils.LogInfo(l)
 	if err != nil {
 		c.Data["json"] = err.Error()
 	} else {
