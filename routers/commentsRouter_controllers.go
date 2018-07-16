@@ -57,7 +57,7 @@ func init() {
 
 	beego.GlobalControllerRouter["bugu/controllers:UserController"] = append(beego.GlobalControllerRouter["bugu/controllers:UserController"],
 		beego.ControllerComments{
-				Method: "Get",
+				Method: "Login",
 				Router: `/login`,
 				AllowHTTPMethods: []string{"get"},
 				MethodParams: param.Make(),
